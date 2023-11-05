@@ -26,19 +26,17 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// MixinExtras
-	include(implementation(annotationProcessor "com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixinextras}"))
+	include(api(annotationProcessor "com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixinextras}"))
 
 	// MixinSquared
-	include(implementation(annotationProcessor "com.github.bawnorton.mixinsquared:mixinsquared-fabric:${project.mixinsquared}"))
+	include(api(annotationProcessor "com.github.bawnorton.mixinsquared:mixinsquared-fabric:${project.mixinsquared}"))
 
 	// Fabric API
-	include(modImplementation "net.fabricmc.fabric-api:fabric-key-binding-api-v1:1.0.36+fb8d95da77")
-	include(modImplementation "net.fabricmc.fabric-api:fabric-resource-loader-v0:0.2.7+c668f41583")
+	include(modApi "net.fabricmc.fabric-api:fabric-key-binding-api-v1:1.0.36+fb8d95da77")
+	include(modApi "net.fabricmc.fabric-api:fabric-resource-loader-v0:0.2.7+c668f41583")
 }
 
 processResources {
-	inputs.property "version", project.version
-
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
